@@ -8,7 +8,11 @@ import 'tailwindcss/tailwind.css'; // Import Tailwind CSS styles
 interface Listing {
   title: string;
   description?: string;
-  price?: string; // Add the price property if it exists in your data structure
+  price?: string;
+  category?: string;
+  condition?: string;
+  shippingOption?: string;
+   // Add the price property if it exists in your data structure
 }
 
 const Home = () => {
@@ -43,14 +47,37 @@ const Home = () => {
                 <p className="text-gray-600 mb-2">{listing.description}</p>
               )}
               {listing.price && (
-                <p className="text-green-500 font-semibold">{listing.price}</p>
+                <p className="text-gray-500 font-semibold">{listing.price +"€"}</p>
               )}
+              {listing.category && (
+                <p className="text-gray-500 font-semibold">{listing.category}</p>
+              )}
+                {listing.shippingOption && (
+                <p className="text-gray-500 font-semibold">{listing.condition}</p>
+              )}
+  
+              {listing.shippingOption && (
+                <p className="text-gray-500 font-semibold">{listing.shippingOption}</p>
+              )}
+  
+              {/* Add text field and send button */}
+              <div className="mt-4 flex">
+                <input
+                  type="text"
+
+                  placeholder="Contact seller..."
+                  className="p-2 border border-gray-300 rounded-l"
+                />
+                <button className="bg-blue-500 text-white px-4 rounded-r">
+                  Send
+                </button>
+              </div>
             </div>
           ))
         )}
       </div>
     </main>
   );
-};
-
-export default Home;
+}
+  export default Home;
+  
